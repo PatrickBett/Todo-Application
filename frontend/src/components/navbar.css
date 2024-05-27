@@ -23,6 +23,6 @@
 
 /* Darken the toggler icon when hovered for better visibility */
 .navbar-toggler:hover .navbar-toggler-icon {
-    filter: brightness(0.01);
+    filter: brightness(0.1);
     /* Darken the icon on hover */
 }
