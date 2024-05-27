@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
 
-    const handleTodo = () =>{
+    const handleTodo = async() =>{
         alert("Success")
     }
 

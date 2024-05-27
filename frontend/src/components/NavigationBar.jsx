@@ -18,13 +18,13 @@ const Navbar = () => {
             <div className="collapse navbar-collapse " id="navbarNavs">
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item active">
-                        <Link className="nav-link" to="/login">Login </Link>
+                        <Link className="nav-link" id='nav-link' to="/login">Login </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/signup">Signup</Link>
+                        <Link className="nav-link" id='nav-link' to="/signup">Signup</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/home">Home</Link>
+                        <Link className="nav-link" id='nav-link' to="/home">Home</Link>
                     </li>
                     
                 </ul>
