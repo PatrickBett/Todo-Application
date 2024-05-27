@@ -6,9 +6,9 @@ import './navbar.css'
 
 const Navbar = () => {
     return (
-        <>
-        <nav className="navbar navbar-expand-sm ">
-            <a className="navbar-brand" href="#">Todo Manager</a>
+        
+        <nav className="navbar navbar-expand-sm p-2">
+            <Link className="navbar-brand" to="/">Todo Manager</Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavs" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@ const Navbar = () => {
         </nav>
 
 
-        </>
+        
     );
 };
 

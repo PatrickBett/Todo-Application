@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './footer.css'
 function Footer() {
   return (
-    <div className='fixed-bottom bg-dark text-white text-center'>
+    <div className='fixed-bottom text-white text-center pb-0' id='footer'>
     
         <p>@dev.patrickbett2024</p>
     
