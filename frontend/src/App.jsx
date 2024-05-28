@@ -6,7 +6,20 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Footer from './components/Footer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Protected from './components/Protected';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import NotFound from './components/NotFound';
+
+
+function Logout(){
+  localStorage.clear()
+  return <Navigate to='/login' />
+}
+
+function RegisterAndLogout(){
+  localStorage.clear()
+  return <Signup />
+}
 
 function App() {
        
@@ -19,8 +32,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Landingpage />} />
       <Route path='login' element={<Login />} />
-      <Route path='signup' element={ <Signup />} />
-      <Route path='home' element={ <Home />} />
+      <Route path='logout' element={<Logout />} />
+      <Route path='signup' element={ <RegisterAndLogout />} />
+      <Route path='home' element={<Protected>{ <Home />}</Protected>} />
+      <Route path='*' element={ <NotFound />} />
       
     </Routes>
 
