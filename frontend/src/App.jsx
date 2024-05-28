@@ -34,7 +34,7 @@ function App() {
       <Route path='login' element={<Login />} />
       <Route path='logout' element={<Logout />} />
       <Route path='signup' element={ <RegisterAndLogout />} />
-      <Route path='home' element={<Protected>{ <Home />}</Protected>} />
+      <Route path='todos' element={<Protected>{ <Home />}</Protected>} />
       <Route path='*' element={ <NotFound />} />
       
     </Routes>
