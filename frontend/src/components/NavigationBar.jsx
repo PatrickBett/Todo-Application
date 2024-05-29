@@ -1,10 +1,9 @@
-// src/Navbar.js
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className="navbar navbar-expand-sm p-2">
       <Link className="navbar-brand" to="/">
@@ -23,23 +22,45 @@ const Navbar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div className="collapse navbar-collapse " id="navbarNavs">
+      <div className="collapse navbar-collapse" id="navbarNavs">
         <ul className="navbar-nav ms-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" id="nav-link" to="/login">
-              Login{" "}
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" id="nav-link" to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" id="nav-link" to="/todos">
-              Home
-            </Link>
-          </li>
+          {isLoggedIn ? (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" id="nav-link" to="/todos">
+                  Today
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" id="nav-link" to="/todos">
+                  Upcoming
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  id="nav-link"
+                  to="/"
+                  onClick={onLogout}
+                >
+                  Logout
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link" id="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" id="nav-link" to="/signup">
+                  Signup
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>
