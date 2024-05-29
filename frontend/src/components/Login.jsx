@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN } from "../constants";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import api from "../api";
 const Login = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -14,6 +14,7 @@ const Login = ({ setIsLoggedIn }) => {
       const response = await api.post("/api/token/", { username, password }); // Replace with your API endpoint
       const token = response.data.access;
       localStorage.setItem(ACCESS_TOKEN, token);
+      localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
       setIsLoggedIn(true);
       navigate("/todos");
     } catch (err) {

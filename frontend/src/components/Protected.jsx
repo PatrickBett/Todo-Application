@@ -20,7 +20,7 @@ function Protected({ children }) {
 
     try {
       //we send request to backend with the refresh token to get a new access token
-      const res = await api.post("/api/token/refresh", {
+      const res = await api.post("/api/token/refresh/", {
         refresh: refreshToken,
       });
 

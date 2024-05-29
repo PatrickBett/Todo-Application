@@ -28,12 +28,12 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
             <>
               <li className="nav-item">
                 <Link className="nav-link" id="nav-link" to="/todos">
-                  Today
+                  Completed
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" id="nav-link" to="/todos">
-                  Upcoming
+                  Not completed
                 </Link>
               </li>
               <li className="nav-item">
