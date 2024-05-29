@@ -35,7 +35,7 @@ function Home() {
   };
 
   //function to handle a new Todo
-  const handleTodo = async () => {
+  const createTodo = async () => {
     alert("Success");
   };
 
@@ -83,7 +83,7 @@ function Home() {
               <button
                 type="button"
                 className="btn btn-primary"
-                onClick={() => deleteTodo()}
+                onClick={() => createTodo()}
               >
                 Save
               </button>
