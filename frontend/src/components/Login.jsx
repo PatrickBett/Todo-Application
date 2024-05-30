@@ -11,7 +11,7 @@ const Login = ({ setIsLoggedIn }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("/api/token/", { username, password }); // Replace with your API endpoint
+      const response = await api.post("/api/token/", { username, password });
       const token = response.data.access;
       localStorage.setItem(ACCESS_TOKEN, token);
       localStorage.setItem(REFRESH_TOKEN, response.data.refresh);

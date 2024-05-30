@@ -6,6 +6,9 @@ function Home() {
   const [todos, setTodos] = useState([]);
   const [todoToDelete, setTodoToDelete] = useState(null);
 
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+
   useEffect(() => {
     getTodos();
   }, []);
@@ -35,8 +38,18 @@ function Home() {
   };
 
   //function to handle a new Todo
-  const createTodo = async () => {
-    alert("Success");
+  const createNewTodo = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await api.post("api/todos/", { title, date });
+      setTodos([...todos, res.data]);
+
+      setTitle("");
+      setDate("");
+      document.querySelector("#myModal .btn-close").click(); // Close modal
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
@@ -68,32 +81,46 @@ function Home() {
             </div>
 
             <div className="modal-body">
-              <label htmlFor="todoTitle" className="form-label">
-                Todo Title
-              </label>
-              <input type="text" className="form-control" id="todoTitle" />
+              <form onSubmit={createNewTodo}>
+                <label htmlFor="todoTitle" className="form-label">
+                  Todo Title
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="todoTitle"
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                />
 
-              <label htmlFor="tododate" className="form-label">
-                Todo Date
-              </label>
-              <input type="date" className="form-control" id="tododate" />
-            </div>
+                <label htmlFor="tododate" className="form-label">
+                  Todo Date
+                </label>
+                <input
+                  type="date"
+                  className="form-control"
+                  id="tododate"
+                  value={date}
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                  }}
+                />
 
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => createTodo()}
-              >
-                Save
-              </button>
-              <button
-                type="button"
-                className="btn btn-danger"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
+                <div className="modal-footer">
+                  <button type="submit" className="btn btn-primary">
+                    Save
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -143,7 +170,7 @@ function Home() {
             {todos.map((todo, index) => (
               <li className="mb-2 p-2 " key={index}>
                 <label className="col-sm-3 me-2">{todo.title} </label>
-                <label className="col-sm-3 me-2">{todo.description}</label>
+                <label className="col-sm-3 me-2">{todo.date}</label>
                 <button
                   className="btn btn-danger col-sm-2 me-2"
                   data-bs-target="#deletemodal"
