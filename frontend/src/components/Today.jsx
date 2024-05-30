@@ -1,9 +1,9 @@
 import React from "react";
 
-function Completed() {
+function Today() {
   return (
     <>
-      <h3 className="text-center">Completed Todo List</h3>
+      <h3 className="text-center">Today's Todo List</h3>
 
       {/* Todo container */}
       <div className="container border rounded shadow mt-5 py-2 mb-5">
@@ -28,4 +28,4 @@ function Completed() {
   );
 }
 
-export default Completed;
+export default Today;

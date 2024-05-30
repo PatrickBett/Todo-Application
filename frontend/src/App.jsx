@@ -11,8 +11,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import { ACCESS_TOKEN } from "./constants";
 import { jwtDecode } from "jwt-decode";
-import Notcompleted from "./components/Notcompleted";
-import Completed from "./components/Completed";
+
+import Today from "./components/Today";
+import Upcoming from "./components/Upcoming";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -62,18 +63,16 @@ function App() {
           />
 
           <Route
-            path="todos/completed"
+            path="todos/today"
             element={
-              <Protected>
-                {<Completed setIsLoggedIn={setIsLoggedIn} />}
-              </Protected>
+              <Protected>{<Today setIsLoggedIn={setIsLoggedIn} />}</Protected>
             }
           />
           <Route
-            path="todos/not-completed"
+            path="todos/upcoming"
             element={
               <Protected>
-                {<Notcompleted setIsLoggedIn={setIsLoggedIn} />}
+                {<Upcoming setIsLoggedIn={setIsLoggedIn} />}
               </Protected>
             }
           />

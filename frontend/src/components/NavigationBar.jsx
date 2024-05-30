@@ -6,9 +6,7 @@ import "./navbar.css";
 const Navbar = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className="navbar navbar-expand-sm p-2">
-      <Link className="navbar-brand" to="/">
-        Todo Manager
-      </Link>
+      <Link className="navbar-brand">Todo Manager</Link>
 
       <button
         className="navbar-toggler"
@@ -32,17 +30,13 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" id="nav-link" to="/todos/completed">
-                  Completed
+                <Link className="nav-link" id="nav-link" to="/todos/today">
+                  Today
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  id="nav-link"
-                  to="/todos/not-completed"
-                >
-                  Not completed
+                <Link className="nav-link" id="nav-link" to="/todos/upcoming">
+                  Upcoming
                 </Link>
               </li>
               <li className="nav-item">

@@ -1,9 +1,9 @@
 import React from "react";
 
-function Notcompleted() {
+function Upcoming() {
   return (
     <>
-      <h3 className="text-center">Not-Completed List</h3>
+      <h3 className="text-center">Upcoming Todo List</h3>
 
       {/* Todo container */}
       <div className="container border rounded shadow mt-5 py-2 mb-5">
@@ -28,4 +28,4 @@ function Notcompleted() {
   );
 }
 
-export default Notcompleted;
+export default Upcoming;
